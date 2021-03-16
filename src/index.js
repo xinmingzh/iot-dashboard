@@ -25,6 +25,13 @@ import {
   MetronicSubheaderProvider
 } from "./_metronic/layout";
 import {MetronicI18nProvider} from "./_metronic/i18n";
+// Firebase App (the core Firebase SDK) is always required and must be listed first
+import firebase from "firebase/app";
+// If you enabled Analytics in your project, add the Firebase SDK for Analytics
+import "firebase/analytics";
+// Add the Firebase products that you want to use
+import "firebase/auth";
+import "firebase/firestore";
 
 /**
  * Base URL of the website.
@@ -47,6 +54,19 @@ const { PUBLIC_URL } = process.env;
  * @see https://github.com/axios/axios#interceptors
  */
 _redux.setupAxios(axios, store);
+
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyCgLXoL1Olg1kh0PpZfsxta0kS5GweYWTY",
+  authDomain: "iot-dashboard-3f305.firebaseapp.com",
+  projectId: "iot-dashboard-3f305",
+  storageBucket: "iot-dashboard-3f305.appspot.com",
+  messagingSenderId: "212490680420",
+  appId: "1:212490680420:web:0e244f9d0c9d31d4c34771",
+  measurementId: "G-PW781P4WSR"
+};
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
 
 ReactDOM.render(
   <MetronicI18nProvider>
