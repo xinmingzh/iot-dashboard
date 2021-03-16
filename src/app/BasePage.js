@@ -14,6 +14,9 @@ const ReactBootstrapPage = lazy(() =>
 const ECommercePage = lazy(() =>
   import("./modules/ECommerce/pages/eCommercePage")
 );
+const IotPage = lazy(() =>
+  import("./modules/Iot/pages/IotPage")
+);
 const UserProfilepage = lazy(() =>
   import("./modules/UserProfile/UserProfilePage")
 );
@@ -37,6 +40,7 @@ export default function BasePage() {
         <Route path="/google-material" component={GoogleMaterialPage} />
         <Route path="/react-bootstrap" component={ReactBootstrapPage} />
         <Route path="/e-commerce" component={ECommercePage} />
+        <Route path="/things" component={IotPage} />
         <Route path="/user-profile" component={UserProfilepage} />
         <Redirect to="error/error-v1" />
       </Switch>

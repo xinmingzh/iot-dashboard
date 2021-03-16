@@ -200,7 +200,7 @@ export function getInitLayoutConfig() {
       cart: {
         display: true,
         dropdown: {
-          style: "dark", // ligth, dark
+          style: "dark", // light, dark
         },
       },
       "quick-panel": {

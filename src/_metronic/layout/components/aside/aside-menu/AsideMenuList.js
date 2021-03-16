@@ -47,6 +47,37 @@ export function AsideMenuList({ layoutProps }) {
         </li>
         {/*end::1 Level*/}
 
+        {/*begin::1 Level*/}
+        <li
+            className={`menu-item ${getMenuItemActive(
+                "/things/customers"
+            )}`}
+            aria-haspopup="true"
+        >
+          <NavLink className="menu-link" to="/things/customers">
+            <i className="menu-bullet menu-bullet-dot">
+              <span />
+            </i>
+            <span className="menu-text">Customers</span>
+          </NavLink>
+        </li>
+        {/*end::1 Level*/}
+        {/*begin::1 Level*/}
+        <li
+            className={`menu-item ${getMenuItemActive(
+                "/things/things"
+            )}`}
+            aria-haspopup="true"
+        >
+          <NavLink className="menu-link" to="/things/products">
+            <i className="menu-bullet menu-bullet-dot">
+              <span />
+            </i>
+            <span className="menu-text">Products</span>
+          </NavLink>
+        </li>
+        {/*end::1 Level*/}
+
         {/* Components */}
         {/* begin::section */}
         <li className="menu-section ">
