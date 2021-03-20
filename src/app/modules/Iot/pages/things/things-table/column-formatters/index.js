@@ -4,3 +4,5 @@ export {ConditionColumnFormatter} from "./ConditionColumnFormatter";
 export {ColorColumnFormatter} from "./ColorColumnFormatter";
 export {PriceColumnFormatter} from "./PriceColumnFormatter";
 export {ActionsColumnFormatter} from "./ActionsColumnFormatter";
+export {VerColumnFormatter} from "./VerColumnFormatter";
+export {LastOnlineColumnFormatter} from "./LastOnlineColumnFormatter";

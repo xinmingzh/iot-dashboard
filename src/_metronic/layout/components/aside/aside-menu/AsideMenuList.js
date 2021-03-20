@@ -50,30 +50,30 @@ export function AsideMenuList({ layoutProps }) {
         {/*begin::1 Level*/}
         <li
             className={`menu-item ${getMenuItemActive(
-                "/things/customers"
+                "/iot/things"
             )}`}
             aria-haspopup="true"
         >
-          <NavLink className="menu-link" to="/things/customers">
+          <NavLink className="menu-link" to="/iot/things">
             <i className="menu-bullet menu-bullet-dot">
               <span />
             </i>
-            <span className="menu-text">Customers</span>
+            <span className="menu-text">Things</span>
           </NavLink>
         </li>
         {/*end::1 Level*/}
         {/*begin::1 Level*/}
         <li
             className={`menu-item ${getMenuItemActive(
-                "/things/things"
+                "/iot/thing-groups"
             )}`}
             aria-haspopup="true"
         >
-          <NavLink className="menu-link" to="/things/products">
+          <NavLink className="menu-link" to="/iot/thing-groups">
             <i className="menu-bullet menu-bullet-dot">
               <span />
             </i>
-            <span className="menu-text">Products</span>
+            <span className="menu-text">Thing Groups</span>
           </NavLink>
         </li>
         {/*end::1 Level*/}

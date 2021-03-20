@@ -19,16 +19,23 @@ import { Remarks } from "../thing-remarks/Remarks";
 
 const initThing = {
   id: undefined,
-  model: "",
-  manufacture: "Pontiac",
-  modelYear: 2020,
-  mileage: 0,
-  description: "",
-  color: "Red",
-  price: 10000,
-  condition: 1,
-  status: 0,
-  VINCode: "",
+  store_id: "",
+  updated: undefined,
+  created: undefined,
+  status: {
+    PREDICTOR_IMAGE: "",
+    DS_IMAGE: "",
+    BRS_IMAGE: "",
+    HORN_IMAGE: "",
+    MODEL_SFTP_IMAGE: "",
+    NUM_CAMERAS: 2,
+    CAM_FRAME_WIDTH: 3088,
+    CAM_FRAME_HEIGHT: 2064,
+    DS_INPUT_WIDTH: 608,
+    DS_INPUT_HEIGHT: 608,
+    TIMEOUT: -1,
+    updated: undefined
+  }
 };
 
 export function ThingsEdit({
@@ -38,7 +45,7 @@ export function ThingsEdit({
   },
 }) {
   // Subheader
-  const suhbeader = useSubheader();
+  const subheader = useSubheader();
 
   // Tabs
   const [tab, setTab] = useState("basic");
@@ -60,15 +67,16 @@ export function ThingsEdit({
   useEffect(() => {
     let _title = id ? "" : "New Thing";
     if (thingForEdit && id) {
-      _title = `Edit thing '${thingForEdit.manufacture} ${thingForEdit.model} - ${thingForEdit.modelYear}'`;
+      _title = `Edit thing '${thingForEdit.store_id} - ${thingForEdit.id}'`;
     }
 
     setTitle(_title);
-    suhbeader.setTitle(_title);
+    subheader.setTitle(_title);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [thingForEdit, id]);
 
   const saveThing = (values) => {
+    console.log(JSON.stringify(values))
     if (!id) {
       dispatch(actions.createThing(values)).then(() => backToThingsList());
     } else {
@@ -84,7 +92,7 @@ export function ThingsEdit({
   };
 
   const backToThingsList = () => {
-    history.push(`/e-commerce/things`);
+    history.push(`/iot/things`);
   };
 
   return (

@@ -7,36 +7,23 @@ import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { Input, Select } from "../../../../../../_metronic/_partials/controls";
 import {
-  AVAILABLE_COLORS,
-  AVAILABLE_MANUFACTURES,
-  ThingStatusTitles,
-  ThingConditionTitles,
+  AVAILABLE_STORE_ID,
+  AVAILABLE_BRS_IMAGE,
+  AVAILABLE_DS_IMAGE, AVAILABLE_MODEL_SFTP_IMAGE, AVAILABLE_PREDICTOR_IMAGE, AVAILABLE_HORN_IMAGE,
 } from "../ThingsUIHelpers";
 
 // Validation schema
 const ThingEditSchema = Yup.object().shape({
-  model: Yup.string()
+  store_id: Yup.string()
     .min(2, "Minimum 2 symbols")
-    .max(50, "Maximum 50 symbols")
-    .required("Model is required"),
-  manufacture: Yup.string()
-    .min(2, "Minimum 2 symbols")
-    .max(50, "Maximum 50 symbols")
-    .required("Manufacture is required"),
-  modelYear: Yup.number()
-    .min(1950, "1950 is minimum")
-    .max(2020, "2020 is maximum")
-    .required("Model year is required"),
-  mileage: Yup.number()
-    .min(0, "0 is minimum")
-    .max(1000000, "1000000 is maximum")
-    .required("Mileage is required"),
-  color: Yup.string().required("Color is required"),
-  price: Yup.number()
-    .min(1, "$1 is minimum")
-    .max(1000000, "$1000000 is maximum")
-    .required("Price is required"),
-  VINCode: Yup.string().required("VINCode is required"),
+    .max(10, "Maximum 10 symbols")
+    .required("Store Id is required"),
+  status: Yup.object().shape({
+    NUM_CAMERAS: Yup.number()
+      .min(0, "0 is minimum")
+      .max(5, "5 is maximum")
+      .required("NUM_CAMERAS is required")
+  })
 });
 
 export function ThingEditForm({
@@ -57,99 +44,83 @@ export function ThingEditForm({
         {({ handleSubmit }) => (
           <>
             <Form className="form form-label-right">
-              <div className="form-group row">
+              <div className="row">
                 <div className="col-lg-4">
-                  <Field
-                    name="model"
-                    component={Input}
-                    placeholder="Model"
-                    label="Model"
-                  />
+                  <div className="form-group">
+                    <Select name="store_id" label="Store ID">
+                      {AVAILABLE_STORE_ID.map((store_id) => (
+                        <option key={store_id} value={store_id}>
+                          {store_id}
+                        </option>
+                      ))}
+                    </Select>
+                  </div>
+                  <div className="form-group">
+                    <Field
+                      type="number"
+                      name="status.NUM_CAMERAS"
+                      component={Input}
+                      placeholder="2"
+                      label="NUM_CAMERAS"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <Field
+                      type="number"
+                      name="status.CAM_FRAME_WIDTH"
+                      component={Input}
+                      placeholder="3088"
+                      label="CAM_FRAME_WIDTH"
+                    />
+                  </div>
                 </div>
-                <div className="col-lg-4">
-                  <Select name="manufacture" label="Manufacture">
-                    {AVAILABLE_MANUFACTURES.map((manufacture) => (
-                      <option key={manufacture} value={manufacture}>
-                        {manufacture}
-                      </option>
-                    ))}
-                  </Select>
+                <div className="col-lg-8">
+                  <div className="form-group">
+                    <Select name="status.MODEL_SFTP_IMAGE" label="MODEL_SFTP_IMAGE">
+                      {AVAILABLE_MODEL_SFTP_IMAGE.map((image) => (
+                        <option key={image} value={image}>
+                          {image}
+                        </option>
+                      ))}
+                    </Select>
+                  </div>
+                  <div className="form-group">
+                    <Select name="status.BRS_IMAGE" label="BRS_IMAGE">
+                      {AVAILABLE_BRS_IMAGE.map((image) => (
+                        <option key={image} value={image}>
+                          {image}
+                        </option>
+                      ))}
+                    </Select>
+                  </div>
+                  <div className="form-group">
+                    <Select name="status.DS_IMAGE" label="DS_IMAGE">
+                      {AVAILABLE_DS_IMAGE.map((image) => (
+                        <option key={image} value={image}>
+                          {image}
+                        </option>
+                      ))}
+                    </Select>
+                  </div>
+                  <div className="form-group">
+                    <Select name="status.PREDICTOR_IMAGE" label="PREDICTOR_IMAGE">
+                      {AVAILABLE_PREDICTOR_IMAGE.map((image) => (
+                        <option key={image} value={image}>
+                          {image}
+                        </option>
+                      ))}
+                    </Select>
+                  </div>
+                  <div className="form-group">
+                    <Select name="status.HORN_IMAGE" label="HORN_IMAGE">
+                      {AVAILABLE_HORN_IMAGE.map((image) => (
+                        <option key={image} value={image}>
+                          {image}
+                        </option>
+                      ))}
+                    </Select>
+                  </div>
                 </div>
-                <div className="col-lg-4">
-                  <Field
-                    type="number"
-                    name="modelYear"
-                    component={Input}
-                    placeholder="Model year"
-                    label="Model year"
-                  />
-                </div>
-              </div>
-              <div className="form-group row">
-                <div className="col-lg-4">
-                  <Field
-                    type="number"
-                    name="mileage"
-                    component={Input}
-                    placeholder="Mileage"
-                    label="Mileage"
-                  />
-                </div>
-                <div className="col-lg-4">
-                  <Select name="color" label="Color">
-                    {AVAILABLE_COLORS.map((color) => (
-                      <option key={color} value={color}>
-                        {color}
-                      </option>
-                    ))}
-                  </Select>
-                </div>
-                <div className="col-lg-4">
-                  <Field
-                    type="number"
-                    name="price"
-                    component={Input}
-                    placeholder="Price"
-                    label="Price ($)"
-                    customFeedbackLabel="Please enter Price"
-                  />
-                </div>
-              </div>
-              <div className="form-group row">
-                <div className="col-lg-4">
-                  <Field
-                    name="VINCode"
-                    component={Input}
-                    placeholder="VIN code"
-                    label="VIN code"
-                  />
-                </div>
-                <div className="col-lg-4">
-                  <Select name="status" label="Status">
-                    {ThingStatusTitles.map((status, index) => (
-                      <option key={status} value={index}>
-                        {status}
-                      </option>
-                    ))}
-                  </Select>
-                </div>
-                <div className="col-lg-4">
-                  <Select name="condition" label="Condition">
-                    {ThingConditionTitles.map((condition, index) => (
-                      <option key={condition} value={index}>
-                        {condition}
-                      </option>
-                    ))}
-                  </Select>
-                </div>
-              </div>
-              <div className="form-group">
-                <label>Description</label>
-                <Field
-                  name="description"
-                  as="textarea"
-                  className="form-control"
-                />
               </div>
               <button
                 type="submit"

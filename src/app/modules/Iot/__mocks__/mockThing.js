@@ -1,53 +1,54 @@
-import carTableMock from "./carTableMock";
+import thingTableMock from "./thingTableMock";
 import MockUtils from "./mock.utils";
+import { v4 as uuidv4 } from "uuid";
 
 export default function mockThings(mock) {
   mock.onPost("api/things").reply(({ data }) => {
     const { thing } = JSON.parse(data);
     const {
-      model = "",
-      manufacture = "",
-      modelYear = 2000,
-      mileage = 0,
-      description = "",
-      color = "Black",
-      price = 1000,
-      condition = 0,
-      status = 0,
-      VINCode = ""
+      id = uuidv4(),
+      store_id = "",
+      updated = (new Date()).toDateString(),
+      created = (new Date()).toDateString(),
+      status = {
+        PREDICTOR_IMAGE: "",
+        DS_IMAGE: "",
+        BRS_IMAGE: "",
+        HORN_IMAGE: "",
+        NUM_CAMERAS: 0,
+        CAM_FRAME_WIDTH: 0,
+        CAM_FRAME_HEIGHT: 0,
+        DS_INPUT_WIDTH: 0,
+        DS_INPUT_HEIGHT: 0,
+        TIMEOUT: -1,
+        updated: (new Date()).toDateString()
+      }
     } = thing;
 
-    const id = generateThingId();
     const newThing = {
       id,
-      model,
-      manufacture,
-      modelYear,
-      mileage,
-      description,
-      color,
-      price,
-      condition,
-      status,
-      VINCode
+      store_id,
+      updated,
+      created,
+      status
     };
-    carTableMock.push(newThing);
+    thingTableMock.push(newThing);
     return [200, { thing: newThing }];
   });
 
   mock.onPost("api/things/find").reply(config => {
     const mockUtils = new MockUtils();
     const { queryParams } = JSON.parse(config.data);
-    const filteredThings = mockUtils.baseFilter(carTableMock, queryParams);
+    const filteredThings = mockUtils.baseFilter(thingTableMock, queryParams);
     return [200, filteredThings];
   });
 
   mock.onPost("api/things/deleteThings").reply(config => {
     const { ids } = JSON.parse(config.data);
     ids.forEach(id => {
-      const index = carTableMock.findIndex(el => el.id === id);
+      const index = thingTableMock.findIndex(el => el.id === id);
       if (index > -1) {
-        carTableMock.splice(index, 1);
+        thingTableMock.splice(index, 1);
       }
     });
     return [200];
@@ -55,7 +56,7 @@ export default function mockThings(mock) {
 
   mock.onPost("api/things/updateStatusForThings").reply(config => {
     const { ids, status } = JSON.parse(config.data);
-    carTableMock.forEach(el => {
+    thingTableMock.forEach(el => {
       if (ids.findIndex(id => id === el.id) > -1) {
         el.status = status;
       }
@@ -65,7 +66,7 @@ export default function mockThings(mock) {
 
   mock.onGet(/api\/things\/\d+/).reply(config => {
     const id = config.url.match(/api\/things\/(\d+)/)[1];
-    const thing = carTableMock.find(el => el.id === +id);
+    const thing = thingTableMock.find(el => el.id === id);
     if (!thing) {
       return [400];
     }
@@ -76,29 +77,23 @@ export default function mockThings(mock) {
   mock.onPut(/api\/things\/\d+/).reply(config => {
     const id = config.url.match(/api\/things\/(\d+)/)[1];
     const { thing } = JSON.parse(config.data);
-    const index = carTableMock.findIndex(el => el.id === +id);
+    const index = thingTableMock.findIndex(el => el.id === +id);
     if (!index) {
       return [400];
     }
 
-    carTableMock[index] = { ...thing };
+    thingTableMock[index] = { ...thing };
     return [200];
   });
 
   mock.onDelete(/api\/things\/\d+/).reply(config => {
     const id = config.url.match(/api\/things\/(\d+)/)[1];
-    const index = carTableMock.findIndex(el => el.id === +id);
-    carTableMock.splice(index, 1);
-    if (!index === -1) {
+    const index = thingTableMock.findIndex(el => el.id === +id);
+    thingTableMock.splice(index, 1);
+    if (!(index === -1)) {
       return [400];
     }
 
     return [200];
   });
-}
-
-function generateThingId() {
-  const ids = carTableMock.map(el => el.id);
-  const maxId = Math.max(...ids);
-  return maxId + 1;
 }
