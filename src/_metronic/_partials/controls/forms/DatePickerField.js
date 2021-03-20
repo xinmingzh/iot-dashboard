@@ -1,4 +1,5 @@
 import React from "react";
+import _ from "lodash";
 import {useField, useFormikContext} from "formik";
 import DatePicker from "react-datepicker";
 
@@ -22,7 +23,10 @@ export function DatePickerField({ ...props }) {
     <>
       {props.label && <label>{props.label}</label>}
       <DatePicker
-        className={getFieldCSSClasses(touched[field.name], errors[field.name])}
+        className={getFieldCSSClasses(
+          _.get(touched, field.name),
+          _.get(errors, field.name)
+        )}
         style={{ width: "100%" }}
         {...field}
         {...props}
@@ -31,9 +35,9 @@ export function DatePickerField({ ...props }) {
           setFieldValue(field.name, val);
         }}
       />
-      {errors[field.name] && touched[field.name] ? (
+      {_.get(errors, field.name) && _.get(touched, field.name) ? (
         <div className="invalid-datepicker-feedback">
-          {errors[field.name].toString()}
+          {_.get(errors, field.name).toString()}
         </div>
       ) : (
         <div className="feedback">

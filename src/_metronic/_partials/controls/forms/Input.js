@@ -1,4 +1,5 @@
 import React from "react";
+import _ from "lodash";
 import {FieldFeedbackLabel} from "./FieldFeedbackLabel";
 
 const getFieldCSSClasses = (touched, errors) => {
@@ -28,14 +29,17 @@ export function Input({
       {label && <label>Enter {label}</label>}
       <input
         type={type}
-        className={getFieldCSSClasses(touched[field.name], errors[field.name])}
+        className={getFieldCSSClasses(
+            _.get(touched, field.name),
+            _.get(errors, field.name)
+        )}
         {...field}
         {...props}
       />
       {withFeedbackLabel && (
         <FieldFeedbackLabel
-          error={errors[field.name]}
-          touched={touched[field.name]}
+          error={_.get(errors, field.name)}
+          touched={_.get(touched, field.name)}
           label={label}
           type={type}
           customFeedbackLabel={customFeedbackLabel}
