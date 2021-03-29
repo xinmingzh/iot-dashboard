@@ -4,6 +4,7 @@ import { ThingsPage } from "./things/ThingsPage";
 import { ThingsEdit } from "./things/thing-edit/ThingsEdit";
 import { LayoutSplashScreen, ContentRoute } from "../../../../_metronic/layout";
 import InfoPage from "./InfoPage";
+import { ThingDetails } from "./things/thing-details/ThingDetails";
 
 export default function IotPage() {
   return (
@@ -16,6 +17,7 @@ export default function IotPage() {
         <ContentRoute path="/iot/info" component={InfoPage} />
         <ContentRoute path="/iot/things/new" component={ThingsEdit} />
         <ContentRoute path="/iot/things/:id/edit" component={ThingsEdit} />
+        <ContentRoute path="/iot/things/:id" component={ThingDetails}/>
         <ContentRoute path="/iot/things" component={ThingsPage} />
       </Switch>
     </Suspense>

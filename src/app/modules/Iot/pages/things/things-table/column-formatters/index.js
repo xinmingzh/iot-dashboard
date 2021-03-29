@@ -6,3 +6,4 @@ export {PriceColumnFormatter} from "./PriceColumnFormatter";
 export {ActionsColumnFormatter} from "./ActionsColumnFormatter";
 export {VerColumnFormatter} from "./VerColumnFormatter";
 export {LastOnlineColumnFormatter} from "./LastOnlineColumnFormatter";
+export {LinkColumnFormatter} from "./LinkColumnFormatter"

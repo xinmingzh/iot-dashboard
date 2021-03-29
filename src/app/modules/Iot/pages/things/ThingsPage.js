@@ -13,6 +13,9 @@ export function ThingsPage({ history }) {
     newThingButtonClick: () => {
       history.push("/iot/things/new");
     },
+    openThingDetailsPage: (id) => {
+      history.push(`/iot/things/${id}`);
+    },
     openEditThingPage: (id) => {
       history.push(`/iot/things/${id}/edit`);
     },
@@ -47,7 +50,7 @@ export function ThingsPage({ history }) {
         {({ history, match }) => (
           <ThingDeleteDialog
             show={match != null}
-            id={match && match.params.id}
+            id={ match && match.params.id }
             onHide={() => {
               history.push("/iot/things");
             }}

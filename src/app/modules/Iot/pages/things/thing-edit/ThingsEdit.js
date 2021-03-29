@@ -67,7 +67,7 @@ export function ThingsEdit({
   useEffect(() => {
     let _title = id ? "" : "New Thing";
     if (thingForEdit && id) {
-      _title = `Edit thing '${thingForEdit.store_id} - ${thingForEdit.id}'`;
+      _title = `Edit thing ${thingForEdit.id} - ${thingForEdit.store_id}`;
     }
 
     setTitle(_title);

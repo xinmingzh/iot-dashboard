@@ -35,6 +35,7 @@ export function ThingsUIProvider({ thingsUIEvents, children }) {
     setQueryParams,
     newThingButtonClick: thingsUIEvents.newThingButtonClick,
     openEditThingPage: thingsUIEvents.openEditThingPage,
+    openThingDetailsPage: thingsUIEvents.openThingDetailsPage,
     openDeleteThingDialog: thingsUIEvents.openDeleteThingDialog,
     openDeleteThingsDialog: thingsUIEvents.openDeleteThingsDialog,
     openFetchThingsDialog: thingsUIEvents.openFetchThingsDialog,

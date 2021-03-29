@@ -30,6 +30,7 @@ export function ThingsTable() {
       queryParams: thingsUIContext.queryParams,
       setQueryParams: thingsUIContext.setQueryParams,
       openEditThingPage: thingsUIContext.openEditThingPage,
+      openThingDetailsPage: thingsUIContext.openThingDetailsPage,
       openDeleteThingDialog: thingsUIContext.openDeleteThingDialog,
     };
   }, [thingsUIContext]);
@@ -56,6 +57,10 @@ export function ThingsTable() {
       text: "THING ID",
       sort: true,
       sortCaret: sortCaret,
+      formatter: columnFormatters.LinkColumnFormatter,
+      formatExtraData: {
+        onClick: thingsUIProps.openThingDetailsPage
+      },
     },
     {
       dataField: "store_id",
