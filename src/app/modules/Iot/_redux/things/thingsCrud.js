@@ -22,7 +22,7 @@ export function findThings(queryParams) {
   return axios.post(`${THINGS_URL}/find`, { queryParams });
 }
 
-// UPDATE => PUT: update the procuct on the server
+// UPDATE => PUT: update the thing on the server
 export function updateThing(thing) {
   return axios.put(`${THINGS_URL}/${thing.id}`, { thing });
 }

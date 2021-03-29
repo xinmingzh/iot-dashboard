@@ -76,7 +76,6 @@ export function ThingsEdit({
   }, [thingForEdit, id]);
 
   const saveThing = (values) => {
-    console.log(JSON.stringify(values))
     if (!id) {
       dispatch(actions.createThing(values)).then(() => backToThingsList());
     } else {

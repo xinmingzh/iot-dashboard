@@ -64,8 +64,8 @@ export default function mockThings(mock) {
     return [200];
   });
 
-  mock.onGet(/api\/things\/\d+/).reply(config => {
-    const id = config.url.match(/api\/things\/(\d+)/)[1];
+  mock.onGet(/api\/things\/\S+/).reply(config => {
+    const id = config.url.match(/api\/things\/(\S+)/)[1];
     const thing = thingTableMock.find(el => el.id === id);
     if (!thing) {
       return [400];
@@ -74,11 +74,11 @@ export default function mockThings(mock) {
     return [200, thing];
   });
 
-  mock.onPut(/api\/things\/\d+/).reply(config => {
-    const id = config.url.match(/api\/things\/(\d+)/)[1];
+  mock.onPut(/api\/things\/\S+/).reply(config => {
+    const id = config.url.match(/api\/things\/(\S+)/)[1];
     const { thing } = JSON.parse(config.data);
-    const index = thingTableMock.findIndex(el => el.id === +id);
-    if (!index) {
+    const index = thingTableMock.findIndex(el => el.id === id);
+    if (!thing || index === -1) {
       return [400];
     }
 
@@ -86,14 +86,14 @@ export default function mockThings(mock) {
     return [200];
   });
 
-  mock.onDelete(/api\/things\/\d+/).reply(config => {
-    const id = config.url.match(/api\/things\/(\d+)/)[1];
-    const index = thingTableMock.findIndex(el => el.id === +id);
-    thingTableMock.splice(index, 1);
-    if (!(index === -1)) {
+  mock.onDelete(/api\/things\/\S+/).reply(config => {
+    const id = config.url.match(/api\/things\/(\S+)/)[1];
+    const index = thingTableMock.findIndex(el => el.id === id);
+    if (index === -1) {
       return [400];
     }
 
+    thingTableMock.splice(index, 1);
     return [200];
   });
 }
