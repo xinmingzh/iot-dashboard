@@ -4,6 +4,7 @@ import mockCustomers from "../../app/modules/ECommerce/__mocks__/mockCustomer";
 import mockProducts from "../../app/modules/ECommerce/__mocks__/mockProduct";
 import mockRemarks from "../../app/modules/ECommerce/__mocks__/mockRemark";
 import mockSpecifications from "../../app/modules/ECommerce/__mocks__/mockSpecification";
+import mockThings from "../../app/modules/Iot/__mocks__/mockThing";
 
 export default function mockAxios(axios) {
   const mock = new MockAdapter(axios, { delayResponse: 300 });
@@ -11,6 +12,7 @@ export default function mockAxios(axios) {
   mockAuth(mock);
   mockCustomers(mock);
   mockProducts(mock);
+  mockThings(mock);
   mockRemarks(mock);
   mockSpecifications(mock);
 

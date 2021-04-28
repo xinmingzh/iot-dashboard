@@ -47,6 +47,37 @@ export function AsideMenuList({ layoutProps }) {
         </li>
         {/*end::1 Level*/}
 
+        {/*begin::1 Level*/}
+        <li
+            className={`menu-item ${getMenuItemActive(
+                "/iot/things"
+            )}`}
+            aria-haspopup="true"
+        >
+          <NavLink className="menu-link" to="/iot/things">
+            <i className="menu-bullet menu-bullet-dot">
+              <span />
+            </i>
+            <span className="menu-text">Things</span>
+          </NavLink>
+        </li>
+        {/*end::1 Level*/}
+        {/*begin::1 Level*/}
+        <li
+            className={`menu-item ${getMenuItemActive(
+                "/iot/thing-groups"
+            )}`}
+            aria-haspopup="true"
+        >
+          <NavLink className="menu-link" to="/iot/thing-groups">
+            <i className="menu-bullet menu-bullet-dot">
+              <span />
+            </i>
+            <span className="menu-text">Thing Groups</span>
+          </NavLink>
+        </li>
+        {/*end::1 Level*/}
+
         {/* Components */}
         {/* begin::section */}
         <li className="menu-section ">
