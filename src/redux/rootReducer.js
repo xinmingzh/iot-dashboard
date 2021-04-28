@@ -7,6 +7,7 @@ import {productsSlice} from "../app/modules/ECommerce/_redux/products/productsSl
 import {remarksSlice} from "../app/modules/ECommerce/_redux/remarks/remarksSlice";
 import {specificationsSlice} from "../app/modules/ECommerce/_redux/specifications/specificationsSlice";
 import {thingsSlice} from "../app/modules/Iot/_redux/things/thingsSlice";
+import {kubeMetricsSlice} from "../app/modules/Iot/_redux/kube-metrics/kubeMetricsSlice";
 
 export const rootReducer = combineReducers({
   auth: auth.reducer,
@@ -14,7 +15,8 @@ export const rootReducer = combineReducers({
   products: productsSlice.reducer,
   remarks: remarksSlice.reducer,
   specifications: specificationsSlice.reducer,
-  things: thingsSlice.reducer
+  things: thingsSlice.reducer,
+  kubeMetrics: kubeMetricsSlice.reducer
 });
 
 export function* rootSaga() {
