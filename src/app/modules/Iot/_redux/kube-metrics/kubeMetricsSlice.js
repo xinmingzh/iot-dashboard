@@ -4,6 +4,8 @@ const initialKubeMetricsState = {
   listLoading: false,
   actionsLoading: false,
   kubeMetric: {
+    id: undefined,
+    updated: undefined,
     nodeMetricList: undefined,
     podMetricList: undefined,
     deploymentList: undefined,

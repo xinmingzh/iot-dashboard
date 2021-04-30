@@ -1,144 +1,17 @@
+let date = new Date()
+// date.setDate(date.getDate() - 100)
+// date.setHours(date.getHours() - 1)
+// date.setMinutes(date.getMinutes() - 1)
+
 export default [
     {
         "id": "jetson-4",
+        "updated": date.toISOString(),
         "nodeMetricsList": {
-            "cpu": "1996711541n",
-            "memory": "5453200Ki"
+            "cpu": "2417534602n",
+            "memory": "5363992Ki"
         },
         "podMetricsList": [
-            {
-                "metadata": {
-                    "name": "mqtt-amqp-bridge-f4ccdb66-2k8xj",
-                    "namespace": "caper-apps"
-                },
-                "containers": [
-                    {
-                        "name": "mqtt-amqp-bridge",
-                        "usage": {
-                            "cpu": "67387n",
-                            "memory": "19940Ki"
-                        }
-                    }
-                ]
-            },
-            {
-                "metadata": {
-                    "name": "cv-services-68598c86c9-jg2rs",
-                    "namespace": "caper-apps"
-                },
-                "containers": [
-                    {
-                        "name": "ds",
-                        "usage": {
-                            "cpu": "572586239n",
-                            "memory": "1013332Ki"
-                        }
-                    },
-                    {
-                        "name": "predictor",
-                        "usage": {
-                            "cpu": "874198046n",
-                            "memory": "312784Ki"
-                        }
-                    },
-                    {
-                        "name": "horn",
-                        "usage": {
-                            "cpu": "2503333n",
-                            "memory": "21924Ki"
-                        }
-                    },
-                    {
-                        "name": "brs",
-                        "usage": {
-                            "cpu": "2502859n",
-                            "memory": "2362876Ki"
-                        }
-                    }
-                ]
-            },
-            {
-                "metadata": {
-                    "name": "metrics-server-86cbb8457f-nxsxp",
-                    "namespace": "kube-system"
-                },
-                "containers": [
-                    {
-                        "name": "metrics-server",
-                        "usage": {
-                            "cpu": "1341060n",
-                            "memory": "22808Ki"
-                        }
-                    }
-                ]
-            },
-            {
-                "metadata": {
-                    "name": "controller-6b7687d974-rw9j9",
-                    "namespace": "caper-apps"
-                },
-                "containers": [
-                    {
-                        "name": "controller",
-                        "usage": {
-                            "cpu": "60255n",
-                            "memory": "41692Ki"
-                        }
-                    }
-                ]
-            },
-            {
-                "metadata": {
-                    "name": "local-path-provisioner-5ff76fc89d-xlq8c",
-                    "namespace": "kube-system"
-                },
-                "containers": [
-                    {
-                        "name": "local-path-provisioner",
-                        "usage": {
-                            "cpu": "2456675n",
-                            "memory": "19304Ki"
-                        }
-                    }
-                ]
-            },
-            {
-                "metadata": {
-                    "name": "amqp-broker-server-0",
-                    "namespace": "caper-apps"
-                },
-                "containers": [
-                    {
-                        "name": "rabbitmq",
-                        "usage": {
-                            "cpu": "9569107n",
-                            "memory": "74388Ki"
-                        }
-                    }
-                ]
-            },
-            {
-                "metadata": {
-                    "name": "svclb-traefik-dzncr",
-                    "namespace": "kube-system"
-                },
-                "containers": [
-                    {
-                        "name": "lb-port-80",
-                        "usage": {
-                            "cpu": "0",
-                            "memory": "1532Ki"
-                        }
-                    },
-                    {
-                        "name": "lb-port-443",
-                        "usage": {
-                            "cpu": "0",
-                            "memory": "1060Ki"
-                        }
-                    }
-                ]
-            },
             {
                 "metadata": {
                     "name": "model-sftp-97c6c9d75-jrp5b",
@@ -148,8 +21,8 @@ export default [
                     {
                         "name": "model-sftp",
                         "usage": {
-                            "cpu": "1820516n",
-                            "memory": "56344Ki"
+                            "cpu": "1789639n",
+                            "memory": "48224Ki"
                         }
                     }
                 ]
@@ -163,8 +36,8 @@ export default [
                     {
                         "name": "operator",
                         "usage": {
-                            "cpu": "5652194n",
-                            "memory": "35560Ki"
+                            "cpu": "5878563n",
+                            "memory": "35Mi"
                         }
                     }
                 ]
@@ -178,13 +51,165 @@ export default [
                     {
                         "name": "coredns",
                         "usage": {
-                            "cpu": "6282136n",
-                            "memory": "28848Ki"
+                            "cpu": "6763796n",
+                            "memory": "28368Ki"
+                        }
+                    }
+                ]
+            },
+            {
+                "metadata": {
+                    "name": "local-path-provisioner-5ff76fc89d-xlq8c",
+                    "namespace": "kube-system"
+                },
+                "containers": [
+                    {
+                        "name": "local-path-provisioner",
+                        "usage": {
+                            "cpu": "2533718n",
+                            "memory": "17864Ki"
+                        }
+                    }
+                ]
+            },
+            {
+                "metadata": {
+                    "name": "amqp-broker-server-0",
+                    "namespace": "caper-apps"
+                },
+                "containers": [
+                    {
+                        "name": "rabbitmq",
+                        "usage": {
+                            "cpu": "53745520n",
+                            "memory": "88908Ki"
+                        }
+                    }
+                ]
+            },
+            {
+                "metadata": {
+                    "name": "svclb-traefik-dzncr",
+                    "namespace": "kube-system"
+                },
+                "containers": [
+                    {
+                        "name": "lb-port-443",
+                        "usage": {
+                            "cpu": "0",
+                            "memory": "1060Ki"
+                        }
+                    },
+                    {
+                        "name": "lb-port-80",
+                        "usage": {
+                            "cpu": "0",
+                            "memory": "1512Ki"
+                        }
+                    }
+                ]
+            },
+            {
+                "metadata": {
+                    "name": "metrics-server-86cbb8457f-nxsxp",
+                    "namespace": "kube-system"
+                },
+                "containers": [
+                    {
+                        "name": "metrics-server",
+                        "usage": {
+                            "cpu": "6778018n",
+                            "memory": "26328Ki"
+                        }
+                    }
+                ]
+            },
+            {
+                "metadata": {
+                    "name": "controller-6b7687d974-rw9j9",
+                    "namespace": "caper-apps"
+                },
+                "containers": [
+                    {
+                        "name": "controller",
+                        "usage": {
+                            "cpu": "154178n",
+                            "memory": "51756Ki"
+                        }
+                    }
+                ]
+            },
+            {
+                "metadata": {
+                    "name": "metrics-exporter-5579fb565b-bvh6q",
+                    "namespace": "caper-apps"
+                },
+                "containers": [
+                    {
+                        "name": "metrics-exporter",
+                        "usage": {
+                            "cpu": "10862832n",
+                            "memory": "56816Ki"
+                        }
+                    }
+                ]
+            },
+            {
+                "metadata": {
+                    "name": "mqtt-amqp-bridge-88d48b6d7-n79pg",
+                    "namespace": "caper-apps"
+                },
+                "containers": [
+                    {
+                        "name": "mqtt-amqp-bridge",
+                        "usage": {
+                            "cpu": "895071n",
+                            "memory": "20000Ki"
+                        }
+                    }
+                ]
+            },
+            {
+                "metadata": {
+                    "name": "cv-services-68598c86c9-jg2rs",
+                    "namespace": "caper-apps"
+                },
+                "containers": [
+                    {
+                        "name": "horn",
+                        "usage": {
+                            "cpu": "2383986n",
+                            "memory": "21596Ki"
+                        }
+                    },
+                    {
+                        "name": "brs",
+                        "usage": {
+                            "cpu": "2566484n",
+                            "memory": "2200172Ki"
+                        }
+                    },
+                    {
+                        "name": "predictor",
+                        "usage": {
+                            "cpu": "869837937n",
+                            "memory": "308632Ki"
+                        }
+                    },
+                    {
+                        "name": "ds",
+                        "usage": {
+                            "cpu": "552156789n",
+                            "memory": "863476Ki"
                         }
                     }
                 ]
             }
         ],
+        "nodeList": {
+            "cpu": "6",
+            "memory": "7958068Ki"
+        },
         "deploymentList": [
             {
                 "metadata": {
@@ -217,41 +242,6 @@ export default [
                             "lastTransitionTime": "2021-04-27T07:22:47Z",
                             "reason": "NewReplicaSetAvailable",
                             "message": "ReplicaSet \"controller-6b7687d974\" has successfully progressed."
-                        }
-                    ]
-                }
-            },
-            {
-                "metadata": {
-                    "name": "mqtt-amqp-bridge",
-                    "namespace": "caper-apps",
-                    "generation": 1,
-                    "labels": {
-                        "app": "mqtt-amqp-bridge"
-                    }
-                },
-                "status": {
-                    "observedGeneration": 1,
-                    "replicas": 1,
-                    "updatedReplicas": 1,
-                    "readyReplicas": 1,
-                    "availableReplicas": 1,
-                    "conditions": [
-                        {
-                            "type": "Available",
-                            "status": "True",
-                            "lastUpdateTime": "2021-04-27T07:23:38Z",
-                            "lastTransitionTime": "2021-04-27T07:23:38Z",
-                            "reason": "MinimumReplicasAvailable",
-                            "message": "Deployment has minimum availability."
-                        },
-                        {
-                            "type": "Progressing",
-                            "status": "True",
-                            "lastUpdateTime": "2021-04-27T07:23:38Z",
-                            "lastTransitionTime": "2021-04-27T07:23:35Z",
-                            "reason": "NewReplicaSetAvailable",
-                            "message": "ReplicaSet \"mqtt-amqp-bridge-f4ccdb66\" has successfully progressed."
                         }
                     ]
                 }
@@ -293,15 +283,85 @@ export default [
             },
             {
                 "metadata": {
+                    "name": "metrics-exporter",
+                    "namespace": "caper-apps",
+                    "generation": 3,
+                    "labels": {
+                        "app": "metrics-exporter"
+                    }
+                },
+                "status": {
+                    "observedGeneration": 3,
+                    "replicas": 1,
+                    "updatedReplicas": 1,
+                    "readyReplicas": 1,
+                    "availableReplicas": 1,
+                    "conditions": [
+                        {
+                            "type": "Progressing",
+                            "status": "True",
+                            "lastUpdateTime": "2021-04-28T09:38:40Z",
+                            "lastTransitionTime": "2021-04-28T09:35:15Z",
+                            "reason": "NewReplicaSetAvailable",
+                            "message": "ReplicaSet \"metrics-exporter-5579fb565b\" has successfully progressed."
+                        },
+                        {
+                            "type": "Available",
+                            "status": "True",
+                            "lastUpdateTime": "2021-04-28T09:54:01Z",
+                            "lastTransitionTime": "2021-04-28T09:54:01Z",
+                            "reason": "MinimumReplicasAvailable",
+                            "message": "Deployment has minimum availability."
+                        }
+                    ]
+                }
+            },
+            {
+                "metadata": {
+                    "name": "mqtt-amqp-bridge",
+                    "namespace": "caper-apps",
+                    "generation": 3,
+                    "labels": {
+                        "app": "mqtt-amqp-bridge"
+                    }
+                },
+                "status": {
+                    "observedGeneration": 3,
+                    "replicas": 1,
+                    "updatedReplicas": 1,
+                    "readyReplicas": 1,
+                    "availableReplicas": 1,
+                    "conditions": [
+                        {
+                            "type": "Progressing",
+                            "status": "True",
+                            "lastUpdateTime": "2021-04-28T11:21:54Z",
+                            "lastTransitionTime": "2021-04-27T07:23:35Z",
+                            "reason": "NewReplicaSetAvailable",
+                            "message": "ReplicaSet \"mqtt-amqp-bridge-88d48b6d7\" has successfully progressed."
+                        },
+                        {
+                            "type": "Available",
+                            "status": "True",
+                            "lastUpdateTime": "2021-04-28T13:19:30Z",
+                            "lastTransitionTime": "2021-04-28T13:19:30Z",
+                            "reason": "MinimumReplicasAvailable",
+                            "message": "Deployment has minimum availability."
+                        }
+                    ]
+                }
+            },
+            {
+                "metadata": {
                     "name": "cv-services",
                     "namespace": "caper-apps",
-                    "generation": 18,
+                    "generation": 73,
                     "labels": {
                         "app": "cv-services"
                     }
                 },
                 "status": {
-                    "observedGeneration": 18,
+                    "observedGeneration": 73,
                     "replicas": 1,
                     "updatedReplicas": 1,
                     "readyReplicas": 1,
@@ -426,58 +486,6 @@ export default [
                             "state": {
                                 "running": {
                                     "startedAt": "2021-04-27T07:22:49Z"
-                                }
-                            },
-                            "ready": true,
-                            "restartCount": 0
-                        }
-                    ],
-                    "qosClass": "BestEffort"
-                }
-            },
-            {
-                "metadata": {
-                    "name": "mqtt-amqp-bridge-f4ccdb66-2k8xj",
-                    "namespace": "caper-apps",
-                    "labels": {
-                        "app": "mqtt-amqp-bridge",
-                        "pod-template-hash": "f4ccdb66"
-                    }
-                },
-                "status": {
-                    "phase": "Running",
-                    "conditions": [
-                        {
-                            "type": "Initialized",
-                            "status": "True",
-                            "lastProbeTime": null,
-                            "lastTransitionTime": "2021-04-27T07:23:35Z"
-                        },
-                        {
-                            "type": "Ready",
-                            "status": "True",
-                            "lastProbeTime": null,
-                            "lastTransitionTime": "2021-04-27T07:23:38Z"
-                        },
-                        {
-                            "type": "ContainersReady",
-                            "status": "True",
-                            "lastProbeTime": null,
-                            "lastTransitionTime": "2021-04-27T07:23:38Z"
-                        },
-                        {
-                            "type": "PodScheduled",
-                            "status": "True",
-                            "lastProbeTime": null,
-                            "lastTransitionTime": "2021-04-27T07:23:35Z"
-                        }
-                    ],
-                    "containerStatuses": [
-                        {
-                            "name": "mqtt-amqp-bridge",
-                            "state": {
-                                "running": {
-                                    "startedAt": "2021-04-27T07:23:37Z"
                                 }
                             },
                             "ready": true,
@@ -616,6 +624,110 @@ export default [
                             },
                             "ready": true,
                             "restartCount": 1
+                        }
+                    ],
+                    "qosClass": "BestEffort"
+                }
+            },
+            {
+                "metadata": {
+                    "name": "metrics-exporter-5579fb565b-bvh6q",
+                    "namespace": "caper-apps",
+                    "labels": {
+                        "app": "metrics-exporter",
+                        "pod-template-hash": "5579fb565b"
+                    }
+                },
+                "status": {
+                    "phase": "Running",
+                    "conditions": [
+                        {
+                            "type": "Initialized",
+                            "status": "True",
+                            "lastProbeTime": null,
+                            "lastTransitionTime": "2021-04-28T09:53:51Z"
+                        },
+                        {
+                            "type": "Ready",
+                            "status": "True",
+                            "lastProbeTime": null,
+                            "lastTransitionTime": "2021-04-28T09:54:01Z"
+                        },
+                        {
+                            "type": "ContainersReady",
+                            "status": "True",
+                            "lastProbeTime": null,
+                            "lastTransitionTime": "2021-04-28T09:54:01Z"
+                        },
+                        {
+                            "type": "PodScheduled",
+                            "status": "True",
+                            "lastProbeTime": null,
+                            "lastTransitionTime": "2021-04-28T09:53:51Z"
+                        }
+                    ],
+                    "containerStatuses": [
+                        {
+                            "name": "metrics-exporter",
+                            "state": {
+                                "running": {
+                                    "startedAt": "2021-04-28T09:54:00Z"
+                                }
+                            },
+                            "ready": true,
+                            "restartCount": 0
+                        }
+                    ],
+                    "qosClass": "BestEffort"
+                }
+            },
+            {
+                "metadata": {
+                    "name": "mqtt-amqp-bridge-88d48b6d7-n79pg",
+                    "namespace": "caper-apps",
+                    "labels": {
+                        "app": "mqtt-amqp-bridge",
+                        "pod-template-hash": "88d48b6d7"
+                    }
+                },
+                "status": {
+                    "phase": "Running",
+                    "conditions": [
+                        {
+                            "type": "Initialized",
+                            "status": "True",
+                            "lastProbeTime": null,
+                            "lastTransitionTime": "2021-04-28T13:19:05Z"
+                        },
+                        {
+                            "type": "Ready",
+                            "status": "True",
+                            "lastProbeTime": null,
+                            "lastTransitionTime": "2021-04-28T13:19:30Z"
+                        },
+                        {
+                            "type": "ContainersReady",
+                            "status": "True",
+                            "lastProbeTime": null,
+                            "lastTransitionTime": "2021-04-28T13:19:30Z"
+                        },
+                        {
+                            "type": "PodScheduled",
+                            "status": "True",
+                            "lastProbeTime": null,
+                            "lastTransitionTime": "2021-04-28T13:19:05Z"
+                        }
+                    ],
+                    "containerStatuses": [
+                        {
+                            "name": "mqtt-amqp-bridge",
+                            "state": {
+                                "running": {
+                                    "startedAt": "2021-04-28T13:19:29Z"
+                                }
+                            },
+                            "ready": true,
+                            "restartCount": 0
                         }
                     ],
                     "qosClass": "BestEffort"
