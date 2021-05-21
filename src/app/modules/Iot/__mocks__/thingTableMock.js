@@ -1,6 +1,6 @@
 export default [
     {
-        id: "00011019110110",
+        id: "jetson-1",
         store_id: "demo-1",
         updated: "05/08/2015",
         created: "03/31/2015",
@@ -20,7 +20,7 @@ export default [
         }
     },
     {
-        id: "00011019110111",
+        id: "jetson-2",
         store_id: "demo-1",
         updated: "05/08/2015",
         created: "03/31/2015",
@@ -40,7 +40,7 @@ export default [
         }
     },
     {
-        id: "00011019110112",
+        id: "jetson-3",
         store_id: "demo-2",
         updated: "05/08/2015",
         created: "03/31/2015",
@@ -60,7 +60,7 @@ export default [
         }
     },
     {
-        id: "00011019110113",
+        id: "jetson-4",
         store_id: "demo-2",
         updated: "05/08/2015",
         created: "03/31/2015",
@@ -80,7 +80,7 @@ export default [
         }
     },
     {
-        id: "00011019110114",
+        id: "jetson-5",
         store_id: "demo-2",
         updated: "05/08/2015",
         created: "03/31/2015",

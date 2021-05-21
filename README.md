@@ -1,4 +1,10 @@
+# Iot Dashboard
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+An example of this dashboard is available at [iot-dashboard-3f305.web.app](https://iot-dashboard-3f305.web.app).
+
+Previews of dashboards in progress are available in pull requests.
 
 ## Available Scripts
 
